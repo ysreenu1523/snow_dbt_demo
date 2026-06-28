@@ -1,0 +1,8 @@
+version: 2
+
+sources:
+  - name: dbtsnow
+    schema: dbtsnow
+    database: dbtsnow
+    tables:
+      - name: adept

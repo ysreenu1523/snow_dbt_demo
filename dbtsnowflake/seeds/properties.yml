@@ -1,0 +1,11 @@
+version: 2
+
+seeds:
+  - name: seed_zero_property
+    description: "This seed is used to test the properties configuration in dbt_project.yml"
+    config:
+      column_types:
+        id: varchar(10)
+      pre_hook: ["INSERT INTO dbtsnow.dbtsnow.DBT_AUDIT (SID,RUN,TYPE,SETUP,SCENARIO,FILE_NAME,LOAD_DT ) VALUES (90,'START','SEED','PROPERTIES','P_SEED_BRACKET','seed_zero_property',CURRENT_DATE)"]
+      post_hook: ["INSERT INTO dbtsnow.dbtsnow.DBT_AUDIT (SID,RUN,TYPE,SETUP,SCENARIO,FILE_NAME,LOAD_DT ) VALUES (90,'END','SEED','PROPERTIES','P_SEED_BRACKET','seed_zero_property',CURRENT_DATE)"]
+  
