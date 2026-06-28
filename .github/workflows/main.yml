@@ -40,7 +40,7 @@ jobs:
           pip install dbt-snowflake
 
       - name: Install dbt Packages
-        run: dbt deps --profiles-dir .  .
+        run: dbt deps --profiles-dir .
 
       - name: Test Snowflake Connection
         run: dbt debug --project-dir .
