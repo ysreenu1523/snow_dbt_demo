@@ -11,7 +11,9 @@ on:
 jobs:
   run_dbt:
     runs-on: ubuntu-latest
-
+    defaults:
+          run:
+            working-directory: ./snow_dbt_demo
     env:
       # Map GitHub Secrets to Environment Variables for dbt profiles.yml
       DBT_SNOWFLAKE_ACCOUNT: ${{ secrets.DBT_SNOWFLAKE_ACCOUNT }}
