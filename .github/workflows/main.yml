@@ -11,6 +11,9 @@ on:
 jobs:
   run_dbt:
     runs-on: ubuntu-latest
+    defaults:
+      run:
+        working-directory: ./dbtsnowflake
 
     env:
       # Map GitHub Secrets to Environment Variables for dbt profiles.yml
@@ -37,16 +40,16 @@ jobs:
           pip install dbt-snowflake
 
       - name: Install dbt Packages
-        run: dbt deps --project-dir ./snow_dbt_demo --profiles-dir ./snow_dbt_demo .
+        run: dbt deps --profiles-dir  .
 
       - name: Test Snowflake Connection
-        run: dbt debug --project-dir ./snow_dbt_demo --profiles-dir ./snow_dbt_demo .
+        run: dbt debug --project-dir .
 
       - name: Run dbt Models
-        run: dbt run --project-dir ./snow_dbt_demo --profiles-dir ./snow_dbt_demo .
+        run: dbt run --project-dir  .
 
       - name: Run dbt Seed
-        run: dbt seed --project-dir ./snow_dbt_demo --profiles-dir ./snow_dbt_demo .
+        run: dbt seed --profiles-dir  .
 
       - name: Test dbt Models
-        run: dbt test --project-dir ./snow_dbt_demo --profiles-dir ./snow_dbt_demo .
+        run: dbt test --project-dir 
